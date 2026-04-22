@@ -1,3 +1,6 @@
+import CopyMarkdownButton from './CopyMarkdownButton.jsx';
+import { buildFullMarkdown } from '../utils/markdown.js';
+
 export default function Hero() {
   return (
     <div className="hero">
@@ -14,6 +17,13 @@ export default function Hero() {
         Tokens, componentes y patrones listos para usar en producto, eventos y
         comunicaciones.
       </p>
+      <div className="hero-actions">
+        <CopyMarkdownButton
+          getMarkdown={buildFullMarkdown}
+          label="Copiar design system"
+          variant="lime"
+        />
+      </div>
       <dl className="hero-meta">
         <div><dt>Versión</dt><dd className="lime">1.0.0</dd></div>
         <div><dt>Actualizado</dt><dd>Abr · 2026</dd></div>

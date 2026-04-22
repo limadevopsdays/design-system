@@ -11,7 +11,7 @@ const alerts = [
 export default function Alerts() {
   return (
     <section id="alerts" className="ds-section">
-      <SectionHead kicker="13 — Componentes" title="Alertas." />
+      <SectionHead sectionId="alerts" kicker="13 — Componentes" title="Alertas." />
       {alerts.map((a) => (
         <div className={`alert ${a.kind}`} key={a.kind}>
           <div><strong>{a.label} ·</strong> {a.text}</div>

@@ -47,6 +47,7 @@ export default function Mascota() {
   return (
     <section id="mascota" className="ds-section">
       <SectionHead
+        sectionId="mascota"
         kicker="03 — Mascota"
         title="Mascota <em>oficial.</em>"
         lead="Personaje del evento: un colibrí que poliniza conocimiento entre la comunidad DevOps. Úsalo como acento narrativo, no como reemplazo del logo."

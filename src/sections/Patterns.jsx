@@ -4,6 +4,7 @@ export default function Patterns() {
   return (
     <section id="patterns" className="ds-section">
       <SectionHead
+        sectionId="patterns"
         kicker="15 — Componentes"
         title="Patrones."
         lead="Piezas compuestas frecuentes del producto y la comunicación."

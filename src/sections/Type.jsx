@@ -15,6 +15,7 @@ export default function Type() {
   return (
     <section id="type" className="ds-section">
       <SectionHead
+        sectionId="type"
         kicker="05 — Tipografía"
         title="Sistema <em>tipográfico.</em>"
         lead="Orbitron para titulares de alto impacto, Poppins para lectura sostenida, JetBrains Mono para datos y código."

@@ -9,7 +9,7 @@ const items = [
 export default function Cards() {
   return (
     <section id="cards" className="ds-section">
-      <SectionHead kicker="12 — Componentes" title="Cards." />
+      <SectionHead sectionId="cards" kicker="12 — Componentes" title="Cards." />
       <div className="cards-grid">
         {items.map((i) => (
           <div className="card" key={i.num}>

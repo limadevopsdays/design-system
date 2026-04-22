@@ -131,6 +131,13 @@ main {
 
 section.ds-section { margin-bottom: 96px; scroll-margin-top: 40px; }
 .ds-head { margin-bottom: 32px; }
+.ds-head-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
 .ds-kicker {
   font-family: var(--f-mono);
   font-size: 11px; letter-spacing: 0.2em;
@@ -899,6 +906,50 @@ section.ds-section { margin-bottom: 96px; scroll-margin-top: 40px; }
   animation: fadeIn 0.2s ease;
 }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.copy-md {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: var(--r-full);
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+.copy-md:hover { transform: translateY(-1px); }
+.copy-md-icon {
+  font-size: 13px;
+  line-height: 1;
+  display: inline-block;
+}
+.copy-md-primary { background: var(--purple); color: var(--white); }
+.copy-md-primary:hover { background: var(--purple-deep); }
+.copy-md-lime { background: var(--lime); color: var(--ink); }
+.copy-md-lime:hover { background: var(--lime-soft); }
+.copy-md-ghost {
+  background: transparent;
+  color: var(--mute);
+  border-color: var(--line);
+}
+.copy-md-ghost:hover { color: var(--purple); border-color: var(--purple); }
+.copy-md.is-done {
+  background: var(--success);
+  color: var(--white);
+  border-color: var(--success);
+}
+
+.hero-actions {
+  margin-top: 28px;
+  position: relative;
+  z-index: 2;
+}
 
 @media (max-width: 1200px) {
   main { padding: 48px 48px 96px; }

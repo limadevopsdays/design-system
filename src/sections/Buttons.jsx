@@ -4,6 +4,7 @@ export default function Buttons() {
   return (
     <section id="buttons" className="ds-section">
       <SectionHead
+        sectionId="buttons"
         kicker="09 — Componentes"
         title="Botones."
         lead="Pill shape (radius full). Alturas 36 / 44 / 52. Primary = púrpura. Secondary = lime. Ghost para acciones terciarias."

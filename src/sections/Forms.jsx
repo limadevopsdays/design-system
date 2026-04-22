@@ -3,7 +3,7 @@ import SectionHead from '../components/SectionHead.jsx';
 export default function Forms() {
   return (
     <section id="forms" className="ds-section">
-      <SectionHead kicker="11 — Componentes" title="Formularios." />
+      <SectionHead sectionId="forms" kicker="11 — Componentes" title="Formularios." />
 
       <div className="forms-grid">
         <div className="field">
