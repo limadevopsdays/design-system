@@ -37,9 +37,18 @@ const groups = [
   },
 ];
 
-export default function Sidebar({ activeId }) {
+export default function Sidebar({ activeId, open, onClose }) {
   return (
-    <aside>
+    <aside className={open ? 'is-open' : ''}>
+      <button
+        type="button"
+        className="nav-close"
+        aria-label="Cerrar navegación"
+        onClick={onClose}
+      >
+        ×
+      </button>
+
       <div className="logo">
         <div className="mark">DD</div>
         <div className="name">
@@ -57,6 +66,7 @@ export default function Sidebar({ activeId }) {
                 key={item.id}
                 href={`#${item.id}`}
                 className={activeId === item.id ? 'is-active' : ''}
+                onClick={onClose}
               >
                 {item.label}
               </a>
