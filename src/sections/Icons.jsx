@@ -10,7 +10,7 @@ export default function Icons() {
   return (
     <section id="icons" className="ds-section">
       <SectionHead
-        kicker="§ 13 — Componentes"
+        kicker="14 — Componentes"
         title="Iconografía."
         lead="Librería de iconos custom del evento — estilo lineal con relleno púrpura. Tamaño base 24px."
       />

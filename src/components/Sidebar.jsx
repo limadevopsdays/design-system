@@ -4,6 +4,7 @@ const groups = [
     items: [
       { id: 'brand', label: 'Esencia de marca' },
       { id: 'logo', label: 'Logotipo' },
+      { id: 'mascota', label: 'Mascota' },
       { id: 'color', label: 'Color' },
       { id: 'type', label: 'Tipografía' },
     ],

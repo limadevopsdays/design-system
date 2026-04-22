@@ -8,14 +8,14 @@ const scale = [
   { label: 'Body LG', cls: 't-body-lg', sample: 'Dos días. Una comunidad. Developers, SREs y platform engineers.', specs: '18/27 · 400' },
   { label: 'Body MD', cls: 't-body-md', sample: 'Párrafo de lectura estándar para descripciones y bloques informativos.', specs: '15/23 · 400' },
   { label: 'Body SM', cls: 't-body-sm', sample: 'Texto de apoyo, captions y metadata secundaria.', specs: '13/20 · 400' },
-  { label: 'Mono', cls: 't-mono', sample: '27 · AGO · 2026 — §.DEPLOY', specs: '12 · 500 · 0.08em' },
+  { label: 'Mono', cls: 't-mono', sample: '27 · AGO · 2026 — .DEPLOY', specs: '12 · 500 · 0.08em' },
 ];
 
 export default function Type() {
   return (
     <section id="type" className="ds-section">
       <SectionHead
-        kicker="§ 04 — Tipografía"
+        kicker="05 — Tipografía"
         title="Sistema <em>tipográfico.</em>"
         lead="Orbitron para titulares de alto impacto, Poppins para lectura sostenida, JetBrains Mono para datos y código."
       />

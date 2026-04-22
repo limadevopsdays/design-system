@@ -4,7 +4,7 @@ export default function Patterns() {
   return (
     <section id="patterns" className="ds-section">
       <SectionHead
-        kicker="§ 14 — Componentes"
+        kicker="15 — Componentes"
         title="Patrones."
         lead="Piezas compuestas frecuentes del producto y la comunicación."
       />
@@ -30,7 +30,7 @@ export default function Patterns() {
       <div className="pattern-tile">
         <div className="pt-label"><span>Section chrome</span><span>pattern.chrome</span></div>
         <div className="section-chrome">
-          <span>§ 03 — Sponsors</span>
+          <span>03 — Sponsors</span>
           <span>Edición 2026</span>
         </div>
       </div>

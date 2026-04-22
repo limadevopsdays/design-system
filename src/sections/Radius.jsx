@@ -12,7 +12,7 @@ const radii = [
 export default function Radius() {
   return (
     <section id="radius" className="ds-section">
-      <SectionHead kicker="§ 06 — Tokens" title="Radios <em>y formas.</em>" />
+      <SectionHead kicker="07 — Tokens" title="Radios <em>y formas.</em>" />
       <div className="radius-grid">
         {radii.map((r) => (
           <div className="radius-item" key={r.label} style={{ borderRadius: r.r }}>

@@ -3,6 +3,7 @@ import Sidebar, { sectionIds } from './components/Sidebar.jsx';
 import Hero from './components/Hero.jsx';
 import Brand from './sections/Brand.jsx';
 import Logo from './sections/Logo.jsx';
+import Mascota from './sections/Mascota.jsx';
 import Color from './sections/Color.jsx';
 import Type from './sections/Type.jsx';
 import Spacing from './sections/Spacing.jsx';
@@ -52,6 +53,7 @@ export default function App() {
         <Hero />
         <Brand />
         <Logo />
+        <Mascota />
         <Color />
         <Type />
         <Spacing />

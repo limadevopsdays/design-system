@@ -11,7 +11,7 @@ export default function Brand() {
   return (
     <section id="brand" className="ds-section">
       <SectionHead
-        kicker="§ 01 — Fundamentos"
+        kicker="01 — Fundamentos"
         title="Esencia <em>de marca.</em>"
         lead="Cuatro atributos que guían toda decisión de diseño, copy e interacción. Si una pieza no refleja al menos dos de estos, no es DevOpsDays Lima."
       />

@@ -4,7 +4,7 @@ export default function Logo() {
   return (
     <section id="logo" className="ds-section">
       <SectionHead
-        kicker="§ 02 — Logotipo"
+        kicker="02 — Logotipo"
         title="Marca <em>principal.</em>"
         lead="Isotipo + logotipo. Usa la versión que mejor contraste con el fondo. Área de resguardo mínima: altura del isotipo."
       />

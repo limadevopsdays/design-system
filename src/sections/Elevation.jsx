@@ -11,7 +11,7 @@ export default function Elevation() {
   return (
     <section id="elevation" className="ds-section">
       <SectionHead
-        kicker="§ 07 — Tokens"
+        kicker="08 — Tokens"
         title="Elevación."
         lead="Cuatro niveles. Sombras con tinte púrpura para mantener coherencia cromática."
       />

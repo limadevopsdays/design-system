@@ -42,7 +42,7 @@ export default function Color() {
   return (
     <section id="color" className="ds-section">
       <SectionHead
-        kicker="§ 03 — Color"
+        kicker="04 — Color"
         title="Paleta <em>extendida.</em>"
         lead="Infinity Purple + Deploy Lime como duo principal. Los neutrales construyen la arquitectura; los semánticos hablan del estado."
       />

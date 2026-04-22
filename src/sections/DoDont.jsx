@@ -21,7 +21,7 @@ const donts = [
 export default function DoDont() {
   return (
     <section id="dodont" className="ds-section">
-      <SectionHead kicker="§ 16 — Expresión" title="Hacer <em>y no hacer.</em>" />
+      <SectionHead kicker="17 — Expresión" title="Hacer <em>y no hacer.</em>" />
       <div className="dodont">
         <div className="dodont-card do">
           <div className="dodont-hd">✓ Hacer</div>

@@ -9,7 +9,7 @@ export default function Spacing() {
   return (
     <section id="spacing" className="ds-section">
       <SectionHead
-        kicker="§ 05 — Tokens"
+        kicker="06 — Tokens"
         title="Espaciado <em>(base 4).</em>"
         lead="Una escala múltiplo de 4 para mantener ritmo vertical y horizontal consistente."
       />

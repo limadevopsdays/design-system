@@ -27,7 +27,7 @@ export default function Voice() {
   return (
     <section id="voice" className="ds-section">
       <SectionHead
-        kicker="§ 15 — Expresión"
+        kicker="16 — Expresión"
         title="Voz <em>y tono.</em>"
         lead="Escribimos como hablamos: directo, técnico, con calidez peruana. Sin corporativismo, sin jerga vacía."
       />
