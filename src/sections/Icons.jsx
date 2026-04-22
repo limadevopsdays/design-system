@@ -1,4 +1,5 @@
 import SectionHead from '../components/SectionHead.jsx';
+import { useI18n } from '../i18n/I18nContext.jsx';
 
 const icons = [
   'home', 'dashboard', 'devops', 'chip', 'bot', 'software', 'nfc', 'wifi',
@@ -7,14 +8,11 @@ const icons = [
 ];
 
 export default function Icons() {
+  const { t } = useI18n();
+  const s = t.icons;
   return (
     <section id="icons" className="ds-section">
-      <SectionHead
-        sectionId="icons"
-        kicker="14 — Componentes"
-        title="Iconografía."
-        lead="Librería de iconos custom del evento — estilo lineal con relleno púrpura. Tamaño base 24px."
-      />
+      <SectionHead sectionId="icons" kicker={s.kicker} title={s.title} lead={s.lead} />
       <div className="icon-grid">
         {icons.map((name) => (
           <div className="icon-cell" key={name}>

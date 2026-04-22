@@ -1,23 +1,14 @@
 import SectionHead from '../components/SectionHead.jsx';
-
-const pillars = [
-  { num: '01', title: 'Ágil', text: 'Deploys pequeños, iteración constante, feedback rápido. Lo mismo aplica al diseño: prototipar y ajustar.' },
-  { num: '02', title: 'Endémico', text: 'Orgullosamente peruano. Referencias locales, color que remite a Lima y a la identidad latinoamericana.' },
-  { num: '03', title: 'Preciso', text: 'Observabilidad, métricas y decisiones basadas en datos. Diseño con intención, nada de adornos gratuitos.' },
-  { num: '04', title: 'Colaborativo', text: 'Como el colibrí poliniza, compartimos conocimiento para que todos crezcan. Open source, open community.' },
-];
+import { useI18n } from '../i18n/I18nContext.jsx';
 
 export default function Brand() {
+  const { t } = useI18n();
+  const s = t.brand;
   return (
     <section id="brand" className="ds-section">
-      <SectionHead
-        sectionId="brand"
-        kicker="01 — Fundamentos"
-        title="Esencia <em>de marca.</em>"
-        lead="Cuatro atributos que guían toda decisión de diseño, copy e interacción. Si una pieza no refleja al menos dos de estos, no es DevOpsDays Lima."
-      />
+      <SectionHead sectionId="brand" kicker={s.kicker} title={s.title} lead={s.lead} />
       <div className="cards-grid">
-        {pillars.map((p) => (
+        {s.pillars.map((p) => (
           <div className="card" key={p.num}>
             <span className="num">{p.num}</span>
             <h4>{p.title}</h4>

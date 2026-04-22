@@ -1,34 +1,33 @@
 import SectionHead from '../components/SectionHead.jsx';
+import { useI18n } from '../i18n/I18nContext.jsx';
 
 export default function Buttons() {
+  const { t } = useI18n();
+  const s = t.buttons;
+  const L = s.labels;
   return (
     <section id="buttons" className="ds-section">
-      <SectionHead
-        sectionId="buttons"
-        kicker="09 — Componentes"
-        title="Botones."
-        lead="Pill shape (radius full). Alturas 36 / 44 / 52. Primary = púrpura. Secondary = lime. Ghost para acciones terciarias."
-      />
+      <SectionHead sectionId="buttons" kicker={s.kicker} title={s.title} lead={s.lead} />
 
-      <h3 className="ds-h3">Variantes</h3>
+      <h3 className="ds-h3">{s.variants}</h3>
       <div className="comp-row">
-        <button className="btn btn-primary">Postular charla</button>
-        <button className="btn btn-secondary">Ver agenda</button>
-        <button className="btn btn-dark">Contactar</button>
-        <button className="btn btn-ghost">Cancelar</button>
-        <button className="btn btn-danger">Eliminar</button>
+        <button className="btn btn-primary">{L.submitTalk}</button>
+        <button className="btn btn-secondary">{L.viewAgenda}</button>
+        <button className="btn btn-dark">{L.contact}</button>
+        <button className="btn btn-ghost">{L.cancel}</button>
+        <button className="btn btn-danger">{L.delete}</button>
       </div>
 
-      <h3 className="ds-h3">Tamaños</h3>
+      <h3 className="ds-h3">{s.sizes}</h3>
       <div className="comp-row">
-        <button className="btn btn-primary btn-sm">Small</button>
-        <button className="btn btn-primary">Medium</button>
-        <button className="btn btn-primary btn-lg">Large</button>
+        <button className="btn btn-primary btn-sm">{L.small}</button>
+        <button className="btn btn-primary">{L.medium}</button>
+        <button className="btn btn-primary btn-lg">{L.large}</button>
       </div>
 
-      <h3 className="ds-h3">Estados</h3>
+      <h3 className="ds-h3">{s.states}</h3>
       <div className="comp-row">
-        <button className="btn btn-primary">Default</button>
+        <button className="btn btn-primary">{L.default}</button>
         <button
           className="btn btn-primary"
           style={{
@@ -37,15 +36,15 @@ export default function Buttons() {
             boxShadow: 'var(--sh-3)',
           }}
         >
-          Hover
+          {L.hover}
         </button>
         <button
           className="btn btn-primary"
           style={{ outline: '3px solid rgba(83,9,158,0.3)' }}
         >
-          Focus
+          {L.focus}
         </button>
-        <button className="btn btn-primary is-disabled">Disabled</button>
+        <button className="btn btn-primary is-disabled">{L.disabled}</button>
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 import SectionHead from '../components/SectionHead.jsx';
+import { useI18n } from '../i18n/I18nContext.jsx';
 
 const radii = [
   { label: 'xs · 4', r: 4 },
@@ -10,9 +11,11 @@ const radii = [
 ];
 
 export default function Radius() {
+  const { t } = useI18n();
+  const s = t.radius;
   return (
     <section id="radius" className="ds-section">
-      <SectionHead sectionId="radius" kicker="07 — Tokens" title="Radios <em>y formas.</em>" />
+      <SectionHead sectionId="radius" kicker={s.kicker} title={s.title} />
       <div className="radius-grid">
         {radii.map((r) => (
           <div className="radius-item" key={r.label} style={{ borderRadius: r.r }}>

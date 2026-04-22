@@ -1,50 +1,24 @@
-const groups = [
-  {
-    title: 'Fundamentos',
-    items: [
-      { id: 'brand', label: 'Esencia de marca' },
-      { id: 'logo', label: 'Logotipo' },
-      { id: 'mascota', label: 'Mascota' },
-      { id: 'color', label: 'Color' },
-      { id: 'type', label: 'Tipografía' },
-    ],
-  },
-  {
-    title: 'Tokens',
-    items: [
-      { id: 'spacing', label: 'Espaciado' },
-      { id: 'radius', label: 'Radios' },
-      { id: 'elevation', label: 'Elevación' },
-    ],
-  },
-  {
-    title: 'Componentes',
-    items: [
-      { id: 'buttons', label: 'Botones' },
-      { id: 'badges', label: 'Badges' },
-      { id: 'forms', label: 'Formularios' },
-      { id: 'cards', label: 'Cards' },
-      { id: 'alerts', label: 'Alertas' },
-      { id: 'icons', label: 'Iconos' },
-      { id: 'patterns', label: 'Patrones' },
-    ],
-  },
-  {
-    title: 'Expresión',
-    items: [
-      { id: 'voice', label: 'Voz y tono' },
-      { id: 'dodont', label: "Do & Don't" },
-    ],
-  },
+import { useI18n } from '../i18n/I18nContext.jsx';
+
+const structure = [
+  { key: 'fundamentos', ids: ['brand', 'logo', 'mascota', 'color', 'type'] },
+  { key: 'tokens', ids: ['spacing', 'radius', 'elevation'] },
+  { key: 'componentes', ids: ['buttons', 'badges', 'forms', 'cards', 'alerts', 'icons', 'patterns'] },
+  { key: 'expresion', ids: ['voice', 'dodont'] },
 ];
 
+export const sectionIds = structure.flatMap((g) => g.ids);
+
 export default function Sidebar({ activeId, open, onClose }) {
+  const { t } = useI18n();
+  const sb = t.sidebar;
+
   return (
     <aside className={open ? 'is-open' : ''}>
       <button
         type="button"
         className="nav-close"
-        aria-label="Cerrar navegación"
+        aria-label={sb.navClose}
         onClick={onClose}
       >
         ×
@@ -58,18 +32,18 @@ export default function Sidebar({ activeId, open, onClose }) {
         </div>
       </div>
 
-      {groups.map((group) => (
-        <div key={group.title}>
-          <div className="nav-section">{group.title}</div>
+      {structure.map((group) => (
+        <div key={group.key}>
+          <div className="nav-section">{sb.groups[group.key]}</div>
           <nav>
-            {group.items.map((item) => (
+            {group.ids.map((id) => (
               <a
-                key={item.id}
-                href={`#${item.id}`}
-                className={activeId === item.id ? 'is-active' : ''}
+                key={id}
+                href={`#${id}`}
+                className={activeId === id ? 'is-active' : ''}
                 onClick={onClose}
               >
-                {item.label}
+                {sb.items[id]}
               </a>
             ))}
           </nav>
@@ -77,13 +51,10 @@ export default function Sidebar({ activeId, open, onClose }) {
       ))}
 
       <div className="aside-foot">
-        27–28 · AGO · 2026<br />
-        Lima · Perú<br /><br />
-        marketing@devopsdays.pe<br />
-        devopsdays.pe
+        {sb.foot.split('\n').map((line, i) => (
+          <span key={i}>{line}<br /></span>
+        ))}
       </div>
     </aside>
   );
 }
-
-export const sectionIds = groups.flatMap((g) => g.items.map((i) => i.id));

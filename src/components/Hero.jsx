@@ -1,34 +1,34 @@
 import CopyMarkdownButton from './CopyMarkdownButton.jsx';
+import LangSwitch from './LangSwitch.jsx';
+import { useI18n } from '../i18n/I18nContext.jsx';
 import { buildFullMarkdown } from '../utils/markdown.js';
 
 export default function Hero() {
+  const { t, lang } = useI18n();
+  const h = t.hero;
   return (
     <div className="hero">
-      <div className="hero-kicker">
-        <span className="dot"></span>
-        <span>DESIGN SYSTEM · V1.0</span>
+      <div className="hero-top">
+        <div className="hero-kicker">
+          <span className="dot"></span>
+          <span>{h.kicker}</span>
+        </div>
+        <LangSwitch />
       </div>
-      <h1>
-        Construir.<br />
-        Desplegar. <em>Repetir.</em>
-      </h1>
-      <p>
-        Design system derivado del manual de marca de DevOpsDays Lima 2026.
-        Tokens, componentes y patrones listos para usar en producto, eventos y
-        comunicaciones.
-      </p>
+      <h1 dangerouslySetInnerHTML={{ __html: h.titleHtml }} />
+      <p>{h.lead}</p>
       <div className="hero-actions">
         <CopyMarkdownButton
-          getMarkdown={buildFullMarkdown}
-          label="Copiar design system"
+          getMarkdown={() => buildFullMarkdown(lang)}
+          label={h.copy}
           variant="lime"
         />
       </div>
       <dl className="hero-meta">
-        <div><dt>Versión</dt><dd className="lime">1.0.0</dd></div>
-        <div><dt>Actualizado</dt><dd>Abr · 2026</dd></div>
-        <div><dt>Base</dt><dd>Manual de Marca v1.1</dd></div>
-        <div><dt>Licencia</dt><dd>Comunidad</dd></div>
+        <div><dt>{h.meta.version}</dt><dd className="lime">1.0.0</dd></div>
+        <div><dt>{h.meta.updated}</dt><dd>{h.meta.updatedValue}</dd></div>
+        <div><dt>{h.meta.base}</dt><dd>{h.meta.baseValue}</dd></div>
+        <div><dt>{h.meta.license}</dt><dd>{h.meta.licenseValue}</dd></div>
       </dl>
     </div>
   );

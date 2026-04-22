@@ -1,22 +1,15 @@
 import { useState } from 'react';
 import SectionHead from '../components/SectionHead.jsx';
+import { useI18n } from '../i18n/I18nContext.jsx';
 
-const mascotas = [
-  { src: '/assets/mascota/mascota-1.png', name: 'Mascota 01' },
-  { src: '/assets/mascota/mascota-2.png', name: 'Mascota 02' },
-  { src: '/assets/mascota/mascota-3.png', name: 'Mascota 03' },
-  { src: '/assets/mascota/mascota-4.png', name: 'Mascota 04' },
+const items = [
+  '/assets/mascota/mascota-1.png',
+  '/assets/mascota/mascota-2.png',
+  '/assets/mascota/mascota-3.png',
+  '/assets/mascota/mascota-4.png',
 ];
 
-const tones = [
-  { id: 'white', label: 'Blanco' },
-  { id: 'paper', label: 'Claro' },
-  { id: 'ink', label: 'Ink' },
-  { id: 'purple', label: 'Púrpura' },
-  { id: 'lime', label: 'Lime' },
-];
-
-function MascotTile({ src, name }) {
+function MascotTile({ src, name, tones, backgroundOf }) {
   const [tone, setTone] = useState('paper');
   return (
     <div className="mascot-tile">
@@ -25,16 +18,16 @@ function MascotTile({ src, name }) {
       </div>
       <div className="mascot-info">
         <div className="mascot-name">{name}</div>
-        <div className="mascot-tones" role="group" aria-label={`Fondo de ${name}`}>
-          {tones.map((t) => (
+        <div className="mascot-tones" role="group" aria-label={`${backgroundOf} ${name}`}>
+          {Object.entries(tones).map(([id, label]) => (
             <button
-              key={t.id}
+              key={id}
               type="button"
-              className={`tone-btn tone-${t.id}${tone === t.id ? ' is-active' : ''}`}
-              onClick={() => setTone(t.id)}
-              aria-label={t.label}
-              aria-pressed={tone === t.id}
-              title={t.label}
+              className={`tone-btn tone-${id}${tone === id ? ' is-active' : ''}`}
+              onClick={() => setTone(id)}
+              aria-label={label}
+              aria-pressed={tone === id}
+              title={label}
             />
           ))}
         </div>
@@ -44,19 +37,22 @@ function MascotTile({ src, name }) {
 }
 
 export default function Mascota() {
+  const { t } = useI18n();
+  const s = t.mascota;
   return (
     <section id="mascota" className="ds-section">
-      <SectionHead
-        sectionId="mascota"
-        kicker="03 — Mascota"
-        title="Mascota <em>oficial.</em>"
-        lead="Personaje del evento: un colibrí que poliniza conocimiento entre la comunidad DevOps. Úsalo como acento narrativo, no como reemplazo del logo."
-      />
+      <SectionHead sectionId="mascota" kicker={s.kicker} title={s.title} lead={s.lead} />
 
-      <h3 className="ds-h3">Versiones y fondos</h3>
+      <h3 className="ds-h3">{s.heading}</h3>
       <div className="mascot-grid">
-        {mascotas.map((m) => (
-          <MascotTile key={m.name} {...m} />
+        {items.map((src, i) => (
+          <MascotTile
+            key={src}
+            src={src}
+            name={`${s.itemName} 0${i + 1}`}
+            tones={s.tones}
+            backgroundOf={s.backgroundOf}
+          />
         ))}
       </div>
     </section>

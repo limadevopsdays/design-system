@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { copyMarkdown } from '../utils/markdown.js';
+import { useI18n } from '../i18n/I18nContext.jsx';
 
-export default function CopyMarkdownButton({ getMarkdown, label = 'Copiar markdown', variant = 'primary' }) {
+export default function CopyMarkdownButton({ getMarkdown, label, variant = 'primary' }) {
   const [state, setState] = useState('idle');
+  const { t } = useI18n();
 
   const onClick = async () => {
     const ok = await copyMarkdown(getMarkdown());
@@ -10,7 +12,7 @@ export default function CopyMarkdownButton({ getMarkdown, label = 'Copiar markdo
     setTimeout(() => setState('idle'), 2000);
   };
 
-  const copy = state === 'done' ? '¡Copiado!' : state === 'fail' ? 'Error' : label;
+  const copy = state === 'done' ? t.copied : state === 'fail' ? t.copyError : label;
 
   return (
     <button

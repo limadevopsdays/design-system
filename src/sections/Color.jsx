@@ -1,4 +1,5 @@
 import SectionHead from '../components/SectionHead.jsx';
+import { useI18n } from '../i18n/I18nContext.jsx';
 
 function Swatch({ hex, chipClass = '', name, meta }) {
   return (
@@ -39,23 +40,20 @@ const semantics = [
 ];
 
 export default function Color() {
+  const { t } = useI18n();
+  const s = t.color;
   return (
     <section id="color" className="ds-section">
-      <SectionHead
-        sectionId="color"
-        kicker="04 — Color"
-        title="Paleta <em>extendida.</em>"
-        lead="Infinity Purple + Deploy Lime como duo principal. Los neutrales construyen la arquitectura; los semánticos hablan del estado."
-      />
+      <SectionHead sectionId="color" kicker={s.kicker} title={s.title} lead={s.lead} />
 
-      <h3 className="ds-h3">Marca</h3>
-      <div className="color-grid">{brand.map((s) => <Swatch key={s.hex} {...s} />)}</div>
+      <h3 className="ds-h3">{s.groups.brand}</h3>
+      <div className="color-grid">{brand.map((sw) => <Swatch key={sw.hex} {...sw} />)}</div>
 
-      <h3 className="ds-h3">Neutrales</h3>
-      <div className="color-grid">{neutrals.map((s) => <Swatch key={s.hex} {...s} />)}</div>
+      <h3 className="ds-h3">{s.groups.neutrals}</h3>
+      <div className="color-grid">{neutrals.map((sw) => <Swatch key={sw.hex} {...sw} />)}</div>
 
-      <h3 className="ds-h3">Semánticos</h3>
-      <div className="color-grid">{semantics.map((s) => <Swatch key={s.hex} {...s} />)}</div>
+      <h3 className="ds-h3">{s.groups.semantic}</h3>
+      <div className="color-grid">{semantics.map((sw) => <Swatch key={sw.hex} {...sw} />)}</div>
     </section>
   );
 }

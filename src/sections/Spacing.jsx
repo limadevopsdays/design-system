@@ -1,4 +1,5 @@
 import SectionHead from '../components/SectionHead.jsx';
+import { useI18n } from '../i18n/I18nContext.jsx';
 
 const scale = [
   ['s-1', 4], ['s-2', 8], ['s-3', 12], ['s-4', 16], ['s-5', 20],
@@ -6,14 +7,11 @@ const scale = [
 ];
 
 export default function Spacing() {
+  const { t } = useI18n();
+  const s = t.spacing;
   return (
     <section id="spacing" className="ds-section">
-      <SectionHead
-        sectionId="spacing"
-        kicker="06 — Tokens"
-        title="Espaciado <em>(base 4).</em>"
-        lead="Una escala múltiplo de 4 para mantener ritmo vertical y horizontal consistente."
-      />
+      <SectionHead sectionId="spacing" kicker={s.kicker} title={s.title} lead={s.lead} />
       <div className="space-grid">
         {scale.map(([name, px]) => (
           <div className="space-item" key={name}>

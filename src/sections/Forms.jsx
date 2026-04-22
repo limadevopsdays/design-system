@@ -1,41 +1,39 @@
 import SectionHead from '../components/SectionHead.jsx';
+import { useI18n } from '../i18n/I18nContext.jsx';
 
 export default function Forms() {
+  const { t } = useI18n();
+  const s = t.forms;
+  const f = s.fields;
   return (
     <section id="forms" className="ds-section">
-      <SectionHead sectionId="forms" kicker="11 — Componentes" title="Formularios." />
+      <SectionHead sectionId="forms" kicker={s.kicker} title={s.title} />
 
       <div className="forms-grid">
         <div className="field">
-          <label>Nombre completo</label>
-          <input type="text" placeholder="Quri Colibrí" />
+          <label>{f.name}</label>
+          <input type="text" placeholder={f.namePh} />
         </div>
         <div className="field">
-          <label>Email</label>
-          <input type="email" placeholder="you@empresa.pe" />
-          <span className="hint">Respondemos en 48h</span>
+          <label>{f.email}</label>
+          <input type="email" placeholder={f.emailPh} />
+          <span className="hint">{f.emailHint}</span>
         </div>
         <div className="field">
-          <label>Eje temático</label>
-          <select defaultValue="IA Empresarial">
-            <option>IA Empresarial</option>
-            <option>Liderazgo Moderno</option>
-            <option>Ingeniería de Plataformas</option>
-            <option>Seguridad</option>
+          <label>{f.topic}</label>
+          <select defaultValue={f.topics[0]}>
+            {f.topics.map((o) => <option key={o}>{o}</option>)}
           </select>
         </div>
         <div className="field">
-          <label>Formato</label>
-          <select defaultValue="Keynote (30 min)">
-            <option>Keynote (30 min)</option>
-            <option>Session (25 min)</option>
-            <option>Panel (50 min)</option>
-            <option>Taller (90 min)</option>
+          <label>{f.format}</label>
+          <select defaultValue={f.formats[0]}>
+            {f.formats.map((o) => <option key={o}>{o}</option>)}
           </select>
         </div>
         <div className="field full">
-          <label>Resumen de la charla</label>
-          <textarea rows={4} placeholder="Cuéntanos tu historia, problema resuelto o hallazgo..." />
+          <label>{f.summary}</label>
+          <textarea rows={4} placeholder={f.summaryPh} />
         </div>
       </div>
     </section>

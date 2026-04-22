@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Sidebar, { sectionIds } from './components/Sidebar.jsx';
+import { useI18n } from './i18n/I18nContext.jsx';
 import Hero from './components/Hero.jsx';
 import Brand from './sections/Brand.jsx';
 import Logo from './sections/Logo.jsx';
@@ -23,6 +24,7 @@ import { useScrollSpy } from './hooks/useScrollSpy.js';
 export default function App() {
   const activeId = useScrollSpy(sectionIds);
   const [navOpen, setNavOpen] = useState(false);
+  const { t } = useI18n();
 
   useEffect(() => {
     document.body.style.overflow = navOpen ? 'hidden' : '';
@@ -34,7 +36,7 @@ export default function App() {
       <button
         type="button"
         className="nav-toggle"
-        aria-label="Abrir navegación"
+        aria-label={t.sidebar.navOpen}
         aria-expanded={navOpen}
         onClick={() => setNavOpen(true)}
       >
